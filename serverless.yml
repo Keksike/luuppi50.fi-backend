@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: luuppi50.fi-backend # NOTE: update this with your service name
+service: luuppi50fi-backend # NOTE: update this with your service name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -20,7 +20,16 @@ service: luuppi50.fi-backend # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs8.10
-
+  region: eu-west-1
+  environment:
+    NODE_ENV: dev
+    EMAIL: 'vujuilmot@luuppi.fi'
+    DOMAIN: '*'
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'ses:SendEmail'
+      Resource: '*'
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -55,16 +64,16 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
-
+  send:
+    handler: handler.send
+    events:
+      - http:
+          path: email/send
+          method: post
+          cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
-#    events:
-#      - http:
-#          path: users/create
-#          method: get
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
 #      - sns: greeter-topic

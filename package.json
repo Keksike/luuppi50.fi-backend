@@ -1,0 +1,27 @@
+{
+  "name": "luuppi50.fi-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keksike/luuppi50.fi-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Keksike/luuppi50.fi-backend/issues"
+  },
+  "homepage": "https://github.com/Keksike/luuppi50.fi-backend#readme",
+  "dependencies": {
+    "aws-sdk": "^2.349.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "google-spreadsheet": "^2.0.6",
+    "serverless-http": "^1.8.0"
+  }
+}
