@@ -111,11 +111,11 @@ module.exports.send = async event => {
     );
     const data = await ses.sendEmail(reportEmailParams).promise();
 
-    // const userEmailParams = generateUserEmailParams(event.body);
-    // console.log(
-    //   'sending email to reporting:' + JSON.stringify(userEmailParams),
-    // );
-    // const emailMailData = await ses.sendEmail(userEmailParams).promise();
+    const userEmailParams = generateUserEmailParams(event.body);
+    console.log(
+      'sending email to reporting:' + JSON.stringify(userEmailParams),
+    );
+    const emailMailData = await ses.sendEmail(userEmailParams).promise();
 
     return generateResponse(200, data);
   } catch (err) {
