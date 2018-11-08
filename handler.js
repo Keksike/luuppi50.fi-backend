@@ -46,6 +46,7 @@ startingYear: ${content.startingYear}
 cocktail: ${content.cocktail}
 greeting: ${content.greeting}
 drink: ${content.drink}
+coffeeAvec: ${content.coffeeAvec}
 food: ${content.food}
 specialDiet: ${content.specialDiet}
 sillis: ${content.sillis}
